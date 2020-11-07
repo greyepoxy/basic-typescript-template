@@ -1,0 +1,68 @@
+{
+  "name": "basic-typescript-template",
+  "version": "1.0.0",
+  "description": "A basic typescript template for node using Ava for tests",
+  "main": "lib/src/index.js",
+  "scripts": {
+    "build": "run-s compile check coverage",
+    "compile": "tsc -b",
+    "coverage": "nyc npm test",
+    "check": "eslint . --ext .ts",
+    "fix": "run-s \"check -- --fix\"",
+    "test": "ava",
+    "watch:compile": "run-s \"compile -- --watch\"",
+    "watch:test": "run-s \"test -- --watch\"",
+    "watch": "run-p watch:**"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greyepoxy/basic-typescript-template.git"
+  },
+  "keywords": [
+    "ts",
+    "node"
+  ],
+  "author": "greyepoxy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/greyepoxy/basic-typescript-template/issues"
+  },
+  "homepage": "https://github.com/greyepoxy/basic-typescript-template#readme",
+  "devDependencies": {
+    "@types/node": "^14.14.6",
+    "@typescript-eslint/eslint-plugin": "^4.6.1",
+    "@typescript-eslint/parser": "^4.6.1",
+    "ava": "^3.13.0",
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "npm-run-all": "^4.1.5",
+    "nyc": "^15.1.0",
+    "prettier": "^2.1.2",
+    "typescript": "^4.0.5"
+  },
+  "files": [
+    "lib/src"
+  ],
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true
+  },
+  "ava": {
+    "files": [
+      "lib/**/*tests.js"
+    ],
+    "source": [
+      "lib/**/*.js",
+      "!lib/**/*.log",
+      "!lib/**/log.txt"
+    ],
+    "concurrency": 5
+  },
+  "nyc": {
+    "reporter": [
+      "html",
+      "text-summary"
+    ]
+  }
+}
