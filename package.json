@@ -57,6 +57,11 @@
       "!lib/**/*.log",
       "!lib/**/log.txt"
     ],
+    "ignoredByWatcher": [
+      "src/**/*",
+      "test/**/*",
+      "**/*.tsbuildinfo"
+    ],
     "concurrency": 5
   },
   "nyc": {
